@@ -5,6 +5,7 @@
 #include "OnlineSessionSettings.h"
 #include "Interfaces/OnlineSessionInterface.h"
 #include "Interfaces/OnlineIdentityInterface.h"
+#include "Interfaces/OnlineExternalUIInterface.h"
 
 
 UTestGameInstance::UTestGameInstance(const FObjectInitializer& ObjectIniyializer)
@@ -236,6 +237,7 @@ void UTestGameInstance::OnGDKLoginComplete(int32 LocalUserNum, bool bWasSuccessf
 	{
 		UE_LOG(LogClass, Log, TEXT("THINHGDK OnLoginComplete: %i failed - %s"), LocalUserNum, *Error);
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("OnLoginComplete: failed - ") + Error);
+		OnlineSubsystem->GetExternalUIInterface()->ShowLoginUI(0, true, false);
 	}
 }
 

@@ -15,7 +15,8 @@ class ATestProjectGameMode : public AGameModeBase
 public:
 	ATestProjectGameMode();
 	virtual void Tick(float DeltaSeconds) override;
-
+	UFUNCTION(Exec, Category = "Commands")
+		void Test(float TestFloat);
 };
 
 

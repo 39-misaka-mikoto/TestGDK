@@ -19,3 +19,8 @@ void ATestProjectGameMode::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 }
+
+void ATestProjectGameMode::Test(float TestFloat)
+{
+	GEngine->AddOnScreenDebugMessage(-10, 30.f, FColor::Yellow, FString::Printf(TEXT("Test: %f"), TestFloat));
+}
